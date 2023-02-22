@@ -1,0 +1,44 @@
+/*
+** EPITECH PROJECT, 2021
+** B-OOP-400-NCE-4-1-arcade-tom.bartoccioni
+** File description:
+** IGraphique
+*/
+
+#include <string>
+#include <vector>
+
+#ifndef IGRAPHIQUE_HPP_
+#define IGRAPHIQUE_HPP_
+
+namespace arcade {
+    class IGraphique {
+        public:
+
+            virtual ~IGraphique() = default;  // DTor
+
+            /* ----- Getter ----- */
+            virtual int getEvent() const = 0;
+
+            /* ----- Methods ----- */
+            // Start the graphique
+            virtual void run() = 0;
+            // Print a map based on a std::string "map"
+            virtual void displayMap(const std::string *map) = 0;
+            // Print txt at "x" and "y" pos
+            virtual void displayText(const int posx, const int posy, std::string &text) = 0;
+            // Print a square at "x" and "y" pos, size of "xLong" and "yLong"
+            virtual void displayRect(const int x, const int y, const int w, const int h, const std::vector<int> color = {6, 139, 196}) = 0;
+            // Print the asset "assetName" at "x" and "y" pos, otherwise print the "otherwise" char
+            virtual void printAsset(const std::string assetName, const int x, const int y, const char otherwise) = 0;
+            // Clear the window
+            virtual void clear() = 0;
+            // Refresh the window
+            virtual void refresh() = 0;
+
+        protected:
+        private:
+    };
+}
+
+#endif /* !IGRAPHIQUE_HPP_ */

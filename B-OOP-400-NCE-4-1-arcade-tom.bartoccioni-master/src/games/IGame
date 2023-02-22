@@ -1,0 +1,42 @@
+/*
+** EPITECH PROJECT, 2021
+** B-OOP-400-NCE-4-1-arcade-tom.bartoccioni
+** File description:
+** IGame
+*/
+
+#ifndef IGAME_HPP_
+#define IGAME_HPP_
+
+namespace arcade {
+
+    class IGame {
+
+        public :
+
+            // The status of the game
+            enum Status {
+                RUNNING,
+                PAUSE
+            };
+
+            // DTor
+            virtual ~IGame() = default; 
+
+            /* -- Getters -- */
+            virtual Status getStatus() const = 0;
+            virtual std::string *getMap() const = 0;
+
+            /* -- Methods -- */
+            // Start the game
+            virtual void start() = 0;
+            // Execute an event "event"
+            virtual int execEvent(int event) = 0;
+
+        protected:
+        private:
+            std::string _map;
+    };
+}
+
+#endif /* !IGAME_HPP_ */
